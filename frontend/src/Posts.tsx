@@ -16,11 +16,13 @@ export function Posts(){
            <div>
                 {myData.map((post: PostModel)=>{
                    console.log(post);
-                   
+
                     return (
                         <ul>
                             <li>
-                                {post.id}
+                                <img src={post.imageUrl}/>
+                                <div>{post.createdAt.toLocaleString()}</div>
+                                <div>{post.message}</div>
                             </li>
                         </ul>
                     )
