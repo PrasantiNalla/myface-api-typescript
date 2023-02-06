@@ -5,7 +5,6 @@ import {Page} from "../../src/models/api/page"
 export function Posts(){
     const [myData, setMyData] = useState([])
 
-
     useEffect(()=>{
         fetch("http://localhost:3001/posts")
             .then(response => response.json())
@@ -15,16 +14,13 @@ export function Posts(){
     return (
            <div>
                 {myData.map((post: PostModel)=>{
-                   console.log(post);
-
                     return (
-                        <ul>
-                            <li>
+                            <li key={post.id}>
                                 <img src={post.imageUrl}/>
                                 <div>{post.createdAt.toLocaleString()}</div>
                                 <div>{post.message}</div>
                             </li>
-                        </ul>
+                            
                     )
                 })}
             </div>
