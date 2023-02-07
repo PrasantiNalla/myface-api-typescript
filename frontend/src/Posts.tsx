@@ -15,14 +15,21 @@ export function Posts(){
            <div>
                 {myData.map((post: PostModel)=>{
                     return (
+                        <>
+                        <ul>
                             <li key={post.id}>
                                 <img src={post.imageUrl}/>
                                 <div>{post.createdAt.toLocaleString()}</div>
                                 <div>{post.message}</div>
                             </li>
-                            
+                        </ul>
+                        
+                        </>
                     )
                 })}
+            <form action="localhost:3001/posts/?page=2&pageSize=10" method="POST">
+                <button type="submit">Next</button>
+            </form>
             </div>
     )
 
