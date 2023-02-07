@@ -3,6 +3,7 @@ import { PostModel } from "../../src/models/api/postModel"
 import { Link } from "react-router-dom";
 import { Page } from "../../src/models/api/page"
 
+
 export function Posts() {
     const [myData, setMyData] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
@@ -15,11 +16,12 @@ export function Posts() {
 
     return (
         <div>
+            <h2>All Posts</h2>
             {myData.map((post: PostModel) => {
                 return (
                     <>
-                        <ul>
-                            <li key={post.id}>
+                        <ul className="posts" >
+                            <li key={post.id} className="posts-item">
                                 <img src={post.imageUrl}
                                     alt="This is a post image"
                                     onError={({ currentTarget }) => {

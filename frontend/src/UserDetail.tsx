@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserModel, UserPostModel } from "../../src/models/api/userModel"
 import { useParams } from "react-router-dom";
 
+
 export function UserDetail() {
     const [myPosts, setMyPosts] = useState([]);
     const [myLikes, setMyLikes] = useState([]);
@@ -12,20 +13,14 @@ export function UserDetail() {
     useEffect(() => {
         fetch(`http://localhost:3001/users/${params.userId}`)
             .then(response => response.json())
-            .then(data => setMyPosts(data.posts))
-    }, []);
+            .then(data => {
+                setMyPosts(data.posts)
+                setMyLikes(data.likes)
+                setMyDislikes(data.dislikes)
+            })
+    }, [params.userId]);
 
-    useEffect(() => {
-        fetch(`http://localhost:3001/users/${params.userId}`)
-            .then(response => response.json())
-            .then(data => setMyLikes(data.likes))
-    }, []);
 
-    useEffect(() => {
-        fetch(`http://localhost:3001/users/${params.userId}`)
-            .then(response => response.json())
-            .then(data => setMyDislikes(data.dislikes))
-    }, []);
 
     // don't know why li is complaining
     return (
