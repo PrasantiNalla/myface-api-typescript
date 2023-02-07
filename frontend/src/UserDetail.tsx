@@ -39,7 +39,12 @@ export function UserDetail() {
                             <ul>
                                 <li>
 
-                                    <img src={post.imageUrl} />
+                                    <img src={post.imageUrl}
+                                        alt="This is a post image"
+                                        onError={({ currentTarget }) => {
+                                            currentTarget.onerror = null; // prevents looping
+                                            currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                        }} />
                                     <br />
                                     {post.message}
                                     <br />
@@ -62,7 +67,12 @@ export function UserDetail() {
                         <div>
                             <ul>
                                 <li>
-                                    <img src={like.imageUrl} /> <br/>
+                                    <img src={like.imageUrl}
+                                        alt="This is a post image"
+                                        onError={({ currentTarget }) => {
+                                            currentTarget.onerror = null; // prevents looping
+                                            currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                        }} /> <br />
                                     {like.createdAt}<br />
                                     {like.message}
                                 </li>
@@ -82,8 +92,13 @@ export function UserDetail() {
                         <div>
                             <ul>
                                 <li >
-                                    <img src={dislike.imageUrl} />
-                                    <br/>
+                                    <img src={dislike.imageUrl}
+                                        alt="This is a post image"
+                                        onError={({ currentTarget }) => {
+                                            currentTarget.onerror = null; // prevents looping
+                                            currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                        }} />
+                                    <br />
                                     {dislike.message}
                                     <br />
                                     {dislike.createdAt}

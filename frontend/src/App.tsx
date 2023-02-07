@@ -21,7 +21,6 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/users" element={<Users />} />
           <Route path="/users/:userId" element={<UserDetail />} />
-          {/* <Route path="/posts/?page=2&pageSize=10" element={<Posts />} /> */}
 
         </Routes>
       </Router>

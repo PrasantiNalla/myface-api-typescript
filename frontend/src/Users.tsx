@@ -1,53 +1,64 @@
-import { createContext,useContext, useEffect, useState } from "react";
-import {UserModel} from "../../src/models/api/userModel"
+import { createContext, useContext, useEffect, useState } from "react";
+import { UserModel } from "../../src/models/api/userModel"
 
 import { UserDetail } from "./UserDetail";
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 
-
-
-// const MyContext = createContext({
-//     userId: ,
-// })
-
-
-export function Users(){
+export function Users() {
     const [myData, setMyData] = useState([])
-    useEffect(()=>{
-        fetch("http://localhost:3001/users")
-            .then(response => response.json())
-            .then(data=>setMyData(data.results))
-    },[]);
+    const [currentPage, setCurrentPage] = useState(1)
 
-    // not sure how to fetch user.id within MyContext
+    useEffect(() => {
+        fetch(`http://localhost:3001/users/?page=${currentPage}&pageSize=10`)
+            .then(response => response.json())
+            .then(data => setMyData(data.results))
+    }, [currentPage]);
+
+
     return (
-       
-           <div>
+
+        <div>
             {myData.map((user: UserModel) => {
-        //    <MyContext.Provider value={{userId: {user.id}}}></MyContext.Provider>
-//`/users/${user.id}`
-                    return (
-                        
-                        <li key={user.id}>
-                          
-                            <div>
-                               
-                                <Link to = {`/users/${user.id}`}>  
-            
-                                    {user.id}
-                                    <img src={user.coverImageUrl}/>
-                                    <div>{user.name}</div>
-                                    <div>{user.username}</div>
-                                </Link>
-                            </div> 
-                   
-                        </li>
+
+                return (
+
+                    <li key={user.id}>
+
+                        <div>
+
+                            <Link to={`/users/${user.id}`}>
+
+                                {user.id}
+                                <img
+                                    src={user.coverImageUrl}
+                                    alt="This is an image"
+                                    onError={({ currentTarget }) => {
+                                        currentTarget.onerror = null; // prevents looping
+                                        currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                    }}
+                                />
+                                <div>{user.name}</div>
+                                <div>{user.username}</div>
+                            </Link>
+                        </div>
+
+                    </li>
                 )
-                // </MyContext.Provider>
-                })}
-            </div>
-          
+
+            })}
+            <Link to={`/users/?page=${currentPage + 1}&pageSize=10`}
+                onClick={() => (setCurrentPage(currentPage + 1))}>
+                Next
+            </Link>
+            {/* add a condition to check for currentPage value before clicking previous */}
+
+            <Link to={`/users/?page=${currentPage - 1}&pageSize=10`}
+                onClick={() => (currentPage > 1 ? setCurrentPage(currentPage - 1) : currentPage)}>
+                Previous
+            </Link>
+        </div>
+
     )
 
 }
