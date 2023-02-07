@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { PostModel } from "../../src/models/api/postModel"
 import { Link } from "react-router-dom";
 import { Page } from "../../src/models/api/page"
+import "./Posts.scss"
 
 
 export function Posts() {
@@ -17,11 +18,13 @@ export function Posts() {
     return (
         <div>
             <h2>All Posts</h2>
+            <div className="posts-wrapper">
             {myData.map((post: PostModel) => {
                 return (
-                    <>
+                    <div>
                         <ul className="posts" >
                             <li key={post.id} className="posts-item">
+                                <div className="post-content">
                                 <img src={post.imageUrl}
                                     alt="This is a post image"
                                     onError={({ currentTarget }) => {
@@ -30,12 +33,14 @@ export function Posts() {
                                     }} />
                                 <div>{post.createdAt.toLocaleString()}</div>
                                 <div>{post.message}</div>
+                                </div>
                             </li>
                         </ul>
-
-                    </>
+                        
+                    </div>
                 )
-            })}
+                
+            })}</div>
 
 {/* interesting bug: if not currentPage +1, the first time we click next, the url will -1 */}
             <Link to={`/posts/?page=${currentPage +1}&pageSize=10`}

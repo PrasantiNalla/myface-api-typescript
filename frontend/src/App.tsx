@@ -1,6 +1,6 @@
 
 import './App.scss'
-import './Posts.scss'
+// import './Posts.scss'
 import './Users.scss'
 import './UserDetail.scss'
 import { Posts } from './Posts'
