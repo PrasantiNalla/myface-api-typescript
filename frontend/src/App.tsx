@@ -4,29 +4,29 @@ import './App.css'
 import { Posts } from './Posts'
 import { Users } from "./Users"
 import { UserDetail } from './UserDetail'
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path ="*" element ={  
+          <Route path="*" element={
             <div>
-              <Link to ="/posts">  Posts </Link>
+              <Link to="/posts">  Posts </Link>
               <Link to="/users">  Users </Link>
             </div>
-          }/>
+          } />
 
           <Route path="/posts" element={<Posts />} />
-          <Route path="/users" element={<Users /> } />
+          <Route path="/users" element={<Users />} />
           <Route path="/users/:userId" element={<UserDetail />} />
-          <Route path="/posts/?page=2&pageSize=10" element={<Posts />} />
+          {/* <Route path="/posts/?page=2&pageSize=10" element={<Posts />} /> */}
 
         </Routes>
       </Router>
     </>
-    
+
   )
 }
 
