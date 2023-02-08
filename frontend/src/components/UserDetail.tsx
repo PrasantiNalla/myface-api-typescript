@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UserModel, UserPostModel } from "../../../src/models/api/userModel"
-import { Link,useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 
@@ -49,12 +49,12 @@ export function UserDetail() {
                 <div className="profile-info">
                     <div>{myProfile.name}</div>
                     <div>{myProfile.username}</div>
-                    <div>{myProfile.email}</div>    
-                </div>  
+                    <div>{myProfile.email}</div>
+                </div>
             </section>
 
 
-            <section className="user-posts">
+            <section className="user">
                 <h3>Posts</h3>
                 <div className="user-wrapper">
                     {myPosts.map((post: UserPostModel) => {
@@ -84,7 +84,7 @@ export function UserDetail() {
 
             </section>
 
-            <section className="user-likes">
+            <section className="user">
                 <h3>Likes</h3>
                 <div className="user-wrapper">
                     {myLikes.map((like: UserPostModel) => {
@@ -109,7 +109,7 @@ export function UserDetail() {
                 </div>
             </section>
 
-            <section className="user-dislikes">
+            <section className="user">
                 <h3>Dislikes</h3>
                 <div className="user-wrapper">
                     {myDislikes.map((dislike: UserPostModel) => {

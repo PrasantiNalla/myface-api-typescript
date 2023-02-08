@@ -1,10 +1,15 @@
+section.user.h3 {
+    text-align: left;
+}
 
-div.user-wrapper, div.user-wrapper,div.user-wrapper {
+div.user-wrapper {
+
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 50px;
+    padding-top: 100px;
 }
 
 li.user-item img {
@@ -22,45 +27,55 @@ li.user-item {
 }
 
 // profile section
-section{
-    max-width:100%;
+section {
+    max-width: 100%;
     padding: 0;
-    margin:0;
+    margin: 0;
     position: relative;
 }
 
-img.cover-image{
+img.cover-image {
     margin: 0;
-    position:relative;
-    width:100%;
-    // max-width:2000px;
-    height:300px;
+    position: relative;
+    width: 100%;
+    height: 250px;
     object-fit: cover;
 }
 
-img.profile-image{
-    width:200px;
-    height:200px;
+img.profile-image {
+    width: 200px;
+    height: 200px;
     border-radius: 100px;
-    margin-top: 180px;
-    position: absolute;
+    margin-top: 150px;
     border: solid 5px white;
-    z-index: 999;
-    left:20px;
-    object-fit: cover;
-}
-
-section.user-profile .profile-info{
-    background-color: red;
-    margin-top: 269px;;
-    left:250px;
-    // max-width:200px;
-    // min-width: 50px;
-    object-fit: cover;
-    background-color: transparent;
-    // text-align: center;
-    z-index: 999;
-    overflow-wrap:anywhere;
     position: absolute;
+    z-index: 2;
+    left: 20px;
+    object-fit: cover;
+
 }
 
+div.profile-info {
+    position: absolute;
+    left: 225px;
+    bottom: -15%;
+    object-fit: cover;
+
+
+}
+
+// section.user-profile .profile-info {
+//     background-color: red;
+//     margin-top: 20px;
+
+//     left: 250px;
+//     // max-width:200px;
+//     // min-width: 50px;
+//     object-fit: cover;
+//     background-color: transparent;
+//     // text-align: center;
+//     z-index: 999;
+//     overflow-wrap: anywhere;
+//     position: absolute;
+
+// }
