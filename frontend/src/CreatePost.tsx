@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { createPostApi } from "./api/api";
+import { useNavigate } from "react-router-dom";
 import "./CreatePost.scss"
 
 export function CreatePost() {
@@ -8,19 +9,20 @@ export function CreatePost() {
     const [imageUrl, setImageUrl] = useState<string>("");
     const [alert, setAlert] = useState(false);
 
+    const navigate = useNavigate();
 
-    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+
+    function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        const apiResponse = await createPostApi(message, imageUrl);
+        navigate("/posts");
+        createPostApi(message, imageUrl);
     }
 
     return (
         <>
             <h2>Create a new post</h2>
             
-            <p className={alert?"alert-appear":"alert-disappear"}>
-                Thank you! Your post has been created successfully!
-            </p>
+          
             
             <form onSubmit={(event) => handleSubmit(event)}>
               
