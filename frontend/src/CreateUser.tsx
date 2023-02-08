@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { createUserApi } from "./api/api";
 import "./CreatePost.scss"
+import { useNavigate } from "react-router-dom";
 
 export function CreateUser() {
     const [name, setName] = useState<string>("");
@@ -9,20 +10,22 @@ export function CreateUser() {
     const [profileImage, setProfileImage] = useState<string>("");
     const [coverImage, setCoverImage] = useState<string>("");
 
-    const [alert, setAlert] = useState(false);
+    const navigate = useNavigate();
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
+        navigate("/users/success");
         createUserApi(name, userName, email, profileImage, coverImage);
     }
 
+  
     return (
         <>
             <h2>Create a new user</h2>
 
-            <p className={alert ? "alert-appear" : "alert-disappear"}>
+            {/* <p className={alert ? "alert-appear" : "alert-disappear"}>
                 Thank you! User has been created successfully!
-            </p>
+            </p> */}
             <form onSubmit={(event) => handleSubmit(event)}>
                 <label>Name
                     <input

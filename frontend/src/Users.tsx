@@ -16,6 +16,7 @@ export function Users() {
 
     return (
         <div>
+            <Link to="/"> Home </Link>
             <h2>All Users</h2>
             <div className="users-wrapper">
                 {myData.map((user: UserModel) => {

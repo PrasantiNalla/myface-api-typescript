@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserModel, UserPostModel } from "../../src/models/api/userModel"
-import { useParams } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
+
 
 
 export function UserDetail() {
@@ -26,6 +27,7 @@ export function UserDetail() {
     return (
         <>
             <div className="user-posts">
+            <Link to="/"> Home </Link>
                 <h3>Posts</h3>
                 <div className="user-wrapper">
                     {myPosts.map((post: UserPostModel) => {

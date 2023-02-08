@@ -14,7 +14,7 @@ export function CreatePost() {
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        navigate("/posts");
+        navigate("/posts/success");
         createPostApi(message, imageUrl);
     }
 

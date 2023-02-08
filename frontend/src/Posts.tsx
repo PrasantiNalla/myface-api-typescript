@@ -17,6 +17,7 @@ export function Posts() {
 
     return (
         <div>
+            <Link to="/"> Home </Link>
             <h2>All Posts</h2>
             <div className="posts-wrapper">
                 {myData.map((post: PostModel) => {

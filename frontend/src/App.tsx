@@ -8,6 +8,8 @@ import { Users } from "./Users"
 import { UserDetail } from './UserDetail'
 import { CreateUser } from './CreateUser'
 import { CreatePost } from './CreatePost'
+import { NewUserMsg } from './NewUserMsg'
+import { NewPostMsg } from './NewPostMsg'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           <Route path="/users/:userId" element={<UserDetail />} />
           <Route path="/users/create" element={<CreateUser />} />
           <Route path="/posts/create" element={<CreatePost />} />
+          <Route path="/posts/success" element={<NewPostMsg />} />
+          <Route path="/users/success" element={<NewUserMsg />} />
 
         </Routes>
       </Router>
