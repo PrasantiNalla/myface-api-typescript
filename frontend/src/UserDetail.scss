@@ -1,0 +1,23 @@
+div.user-wrapper, div.user-wrapper,div.user-wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+}
+
+li.user-item img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+li.user-item {
+    list-style-type: none;
+    background: #151820;
+    position: relative;
+    color: white;
+    text-overflow: ellipsis;
+
+}
+

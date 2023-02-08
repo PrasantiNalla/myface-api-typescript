@@ -25,86 +25,87 @@ export function UserDetail() {
     // don't know why li is complaining
     return (
         <>
-            <div>
+            <div className="user-posts">
                 <h3>Posts</h3>
+                <div className="user-wrapper">
+                    {myPosts.map((post: UserPostModel) => {
+                        return (
+                            <div>
+                                <ul >
+                                    <li className="user-item">
 
-                {myPosts.map((post: UserPostModel) => {
-                    return (
-                        <div>
-                            <ul>
-                                <li>
+                                        <img src={post.imageUrl}
+                                            alt="This is a post image"
+                                            onError={({ currentTarget }) => {
+                                                currentTarget.onerror = null; // prevents looping
+                                                currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                            }} />
+                                        <br />
+                                        {post.message}
+                                        <br />
+                                        {post.createdAt}
 
-                                    <img src={post.imageUrl}
-                                        alt="This is a post image"
-                                        onError={({ currentTarget }) => {
-                                            currentTarget.onerror = null; // prevents looping
-                                            currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
-                                        }} />
-                                    <br />
-                                    {post.message}
-                                    <br />
-                                    {post.createdAt}
-
-                                </li>
-                            </ul>
-                        </div>
-                    )
-                })
-                }
+                                    </li>
+                                </ul>
+                            </div>
+                        )
+                    })
+                    }
+                </div>
 
             </div>
 
-            <section>
+            <div className="user-likes">
                 <h3>Likes</h3>
+                <div className="user-wrapper">
+                    {myLikes.map((like: UserPostModel) => {
+                        return (
+                            <div>
+                                <ul >
+                                    <li className="user-item">
+                                        <img src={like.imageUrl}
+                                            alt="This is a post image"
+                                            onError={({ currentTarget }) => {
+                                                currentTarget.onerror = null; // prevents looping
+                                                currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                            }} /> <br />
+                                        {like.createdAt}<br />
+                                        {like.message}
+                                    </li>
+                                </ul>
+                            </div>
+                        )
+                    })
+                    }
+                </div>
+            </div>
 
-                {myLikes.map((like: UserPostModel) => {
-                    return (
-                        <div>
-                            <ul>
-                                <li>
-                                    <img src={like.imageUrl}
-                                        alt="This is a post image"
-                                        onError={({ currentTarget }) => {
-                                            currentTarget.onerror = null; // prevents looping
-                                            currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
-                                        }} /> <br />
-                                    {like.createdAt}<br />
-                                    {like.message}
-                                </li>
-                            </ul>
-                        </div>
-                    )
-                })
-                }
-
-            </section>
-
-            <section>
+            <div className="user-dislikes">
                 <h3>Dislikes</h3>
-
-                {myDislikes.map((dislike: UserPostModel) => {
-                    return (
-                        <div>
-                            <ul>
-                                <li >
-                                    <img src={dislike.imageUrl}
-                                        alt="This is a post image"
-                                        onError={({ currentTarget }) => {
-                                            currentTarget.onerror = null; // prevents looping
-                                            currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
-                                        }} />
-                                    <br />
-                                    {dislike.message}
-                                    <br />
-                                    {dislike.createdAt}
-                                </li>
-                            </ul>
-                        </div>
-                    )
-                })
-                }
-
-            </section>
+                <div className="user-wrapper">
+                    {myDislikes.map((dislike: UserPostModel) => {
+                        return (
+                            <div >
+                                <ul>
+                                    <li className="user-item">
+                                        <img src={dislike.imageUrl}
+                                            alt="This is a post image"
+                                            onError={({ currentTarget }) => {
+                                                currentTarget.onerror = null; // prevents looping
+                                                currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                            }} />
+                                        <br />
+                                        {dislike.message}
+                                        <br />
+                                        {dislike.createdAt}
+                                    </li>
+                                </ul>
+                            </div>
+                        )
+                    })
+                    }
+                </div>
+            </div>
         </>
     )
 
