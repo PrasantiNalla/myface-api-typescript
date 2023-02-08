@@ -71,6 +71,7 @@ export function createPostApi(message: string, imageUrl: string):
     // add function for like button
     export function like(postId:number):
     Promise<Response>{
+        
     const url = "http://localhost:3001/:postId/like/";
 
     const response = fetch(url, { 
