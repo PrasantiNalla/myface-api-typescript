@@ -7,6 +7,7 @@ import { Posts } from './Posts'
 import { Users } from "./Users"
 import { UserDetail } from './UserDetail'
 import { CreateUser } from './CreateUser'
+import { CreatePost } from './CreatePost'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
             <div>
               <Link to="/posts">  Posts </Link>
               <Link to="/users">  Users </Link>
+              <Link to="/users/create">  + New User </Link>
+              <Link to="/posts/create">  + New Post </Link>
             </div>
           } />
 
@@ -25,6 +28,7 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/users/:userId" element={<UserDetail />} />
           <Route path="/users/create" element={<CreateUser />} />
+          <Route path="/posts/create" element={<CreatePost />} />
 
         </Routes>
       </Router>

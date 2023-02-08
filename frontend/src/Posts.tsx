@@ -24,7 +24,7 @@ export function Posts() {
                         <div >
                             <ul className="posts" >
                                 <li key={post.id} className="posts-item">
-                                    <div className="post-content">
+                        
                                         <img src={post.imageUrl}
                                             alt="This is a post image"
                                             onError={({ currentTarget }) => {
@@ -33,7 +33,7 @@ export function Posts() {
                                             }} />
                                         <div>{post.createdAt.toLocaleString()}</div>
                                         <div>{post.message}</div>
-                                    </div>
+                                  
                                 </li>
                             </ul>
 
@@ -48,7 +48,7 @@ export function Posts() {
                 Next
             </Link>
             {/* add a condition to check for currentPage value before clicking previous */}
-
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <Link to={`/posts/?page=${currentPage - 1}&pageSize=10`}
                 onClick={() => (currentPage > 1 ? setCurrentPage(currentPage - 1) : currentPage)}>
                 Previous

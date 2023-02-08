@@ -1,0 +1,25 @@
+div.users-wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+}
+
+li.users-item img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+li.users-item {
+    list-style-type: none;
+    background: #151820;
+    position: relative;
+    color: white;
+    text-overflow: ellipsis;
+}
+
+div.btn{
+    margin-top: 50px;
+}

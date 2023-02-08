@@ -15,48 +15,51 @@ export function Users() {
 
 
     return (
-
         <div>
-            {myData.map((user: UserModel) => {
+            <h2>All Users</h2>
+            <div className="users-wrapper">
+                {myData.map((user: UserModel) => {
 
-                return (
+                    return (
 
-                    <li key={user.id}>
 
-                        <div>
+                        <li key={user.id} className="users-item">
+                            <div>
 
-                            <Link to={`/users/${user.id}`}>
+                                <Link to={`/users/${user.id}`}>
+                                    <img
+                                        src={user.profileImageUrl}
+                                        alt="This is an image"
+                                        onError={({ currentTarget }) => {
+                                            currentTarget.onerror = null; // prevents looping
+                                            currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                        }}
+                                    />
+                                    <div>{user.name}</div>
+                                    <div>{user.username}</div>
+                                </Link>
+                            </div>
 
-                                {user.id}
-                                <img
-                                    src={user.coverImageUrl}
-                                    alt="This is an image"
-                                    onError={({ currentTarget }) => {
-                                        currentTarget.onerror = null; // prevents looping
-                                        currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
-                                    }}
-                                />
-                                <div>{user.name}</div>
-                                <div>{user.username}</div>
-                            </Link>
-                        </div>
+                        </li>
+                    )
 
-                    </li>
-                )
+                })}
+            </div>
 
-            })}
+            <div className="btn">
             <Link to={`/users/?page=${currentPage + 1}&pageSize=10`}
                 onClick={() => (setCurrentPage(currentPage + 1))}>
                 Next
             </Link>
             {/* add a condition to check for currentPage value before clicking previous */}
-
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <Link to={`/users/?page=${currentPage - 1}&pageSize=10`}
                 onClick={() => (currentPage > 1 ? setCurrentPage(currentPage - 1) : currentPage)}>
                 Previous
             </Link>
-        </div>
+            </div>
 
+        </div>
     )
 
 }
