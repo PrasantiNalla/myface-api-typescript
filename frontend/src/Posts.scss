@@ -3,36 +3,28 @@ div.posts-wrapper {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     grid-gap: 50px;
 }
 
 li.posts-item img {
     width: 100%;
-    height: 200px;
-    margin-top: 10px;
-    padding: 0;
-    position:relative;
-}
-
-ul.posts {
-    white-space: nowrap;
-    list-style-type: none;
-    text-overflow: wrap;
-    background: #151820;
-    list-style-type: none;
-    width: 100%;
     height: 100%;
+    position: relative;
 }
 
 li.posts-item {
     list-style-type: none;
-    max-width: 200px;
     background: #151820;
     position: relative;
     color: white;
     text-overflow: ellipsis;
-    // max-height: 200px;
-    // max-width: 200px;
-    // box-sizing:border-box;
+
 }
+
+// ul.posts {
+//     white-space: nowrap;
+//     list-style-type: none;
+//     text-overflow: wrap;
+//     background: #151820;
+//     list-style-type: none;
+// }

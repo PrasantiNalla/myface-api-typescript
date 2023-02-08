@@ -19,38 +19,38 @@ export function Posts() {
         <div>
             <h2>All Posts</h2>
             <div className="posts-wrapper">
-            {myData.map((post: PostModel) => {
-                return (
-                    <div>
-                        <ul className="posts" >
-                            <li key={post.id} className="posts-item">
-                                <div className="post-content">
-                                <img src={post.imageUrl}
-                                    alt="This is a post image"
-                                    onError={({ currentTarget }) => {
-                                        currentTarget.onerror = null; // prevents looping
-                                        currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
-                                    }} />
-                                <div>{post.createdAt.toLocaleString()}</div>
-                                <div>{post.message}</div>
-                                </div>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                )
-                
-            })}</div>
+                {myData.map((post: PostModel) => {
+                    return (
+                        <div >
+                            <ul className="posts" >
+                                <li key={post.id} className="posts-item">
+                                    <div className="post-content">
+                                        <img src={post.imageUrl}
+                                            alt="This is a post image"
+                                            onError={({ currentTarget }) => {
+                                                currentTarget.onerror = null; // prevents looping
+                                                currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                            }} />
+                                        <div>{post.createdAt.toLocaleString()}</div>
+                                        <div>{post.message}</div>
+                                    </div>
+                                </li>
+                            </ul>
 
-{/* interesting bug: if not currentPage +1, the first time we click next, the url will -1 */}
-            <Link to={`/posts/?page=${currentPage +1}&pageSize=10`}
+                        </div>
+                    )
+
+                })}</div>
+
+            {/* interesting bug: if not currentPage +1, the first time we click next, the url will -1 */}
+            <Link to={`/posts/?page=${currentPage + 1}&pageSize=10`}
                 onClick={() => (setCurrentPage(currentPage + 1))}>
                 Next
             </Link>
             {/* add a condition to check for currentPage value before clicking previous */}
-            
+
             <Link to={`/posts/?page=${currentPage - 1}&pageSize=10`}
-                onClick={() => (currentPage>1? setCurrentPage(currentPage - 1):currentPage)}>
+                onClick={() => (currentPage > 1 ? setCurrentPage(currentPage - 1) : currentPage)}>
                 Previous
             </Link>
         </div>
