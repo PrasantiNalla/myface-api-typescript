@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { PostModel } from "../../../src/models/api/postModel"
 import { Link } from "react-router-dom";
+import { like,dislike } from "../api/api";
 import { createInteraction } from "../../../src/repos/interactionRepo"
 
 
@@ -36,8 +37,8 @@ export function Posts() {
                                         }} />
                                     <div>{post.createdAt.toLocaleString()}</div>
                                     <div>{post.message}</div>
-                                    {/* <button onClick={() => createInteraction(post.postedBy.id, post.id, "LIKE")}>Like</button>
-                                    <button onClick={() => createInteraction(post.postedBy.id, post.id, "DISLIKE")}>Dislike</button> */}
+                                    <button onClick={() => like(post.id)}>Like</button>
+                                    <button onClick={() => dislike(post.id)}>Dislike</button> 
                                 </li>
                             </ul>
 
