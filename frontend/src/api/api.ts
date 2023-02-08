@@ -8,7 +8,7 @@ export function createPostApi(message: string, imageUrl: string):
         imageUrl: imageUrl
     }
 
-    const response = fetch( url,{ 
+    const response = fetch(url, { 
         method:"POST",
         headers: {
             "Content-Type": "application/json"
@@ -23,12 +23,7 @@ export function createPostApi(message: string, imageUrl: string):
             } else {
                 throw new Error('Something went wrong.');
             }
-          
         })
-        .finally(() => console.log("Request finished."))
-        
-        
-        
         return response;
     }
 

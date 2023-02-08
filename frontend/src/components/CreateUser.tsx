@@ -22,10 +22,6 @@ export function CreateUser() {
     return (
         <>
             <h2>Create a new user</h2>
-
-            {/* <p className={alert ? "alert-appear" : "alert-disappear"}>
-                Thank you! User has been created successfully!
-            </p> */}
             <form onSubmit={(event) => handleSubmit(event)}>
                 <label>Name
                     <input
@@ -76,7 +72,7 @@ export function CreateUser() {
                         />
                 </label>
                 <br /><br />
-                <button type="submit" onClick={() => setAlert(!alert)}>Create User</button>
+                <button type="submit" >Create User</button>
             </form>
         </>
     )

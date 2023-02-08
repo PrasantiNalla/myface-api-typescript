@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { PostModel } from "../../../src/models/api/postModel"
 import { Link } from "react-router-dom";
+import { createInteraction } from "../../../src/repos/interactionRepo"
+
+
 
 
 
@@ -24,16 +27,17 @@ export function Posts() {
                         <div >
                             <ul className="posts" >
                                 <li key={post.id} className="posts-item">
-                        
-                                        <img src={post.imageUrl}
-                                            alt="This is a post image"
-                                            onError={({ currentTarget }) => {
-                                                currentTarget.onerror = null; // prevents looping
-                                                currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
-                                            }} />
-                                        <div>{post.createdAt.toLocaleString()}</div>
-                                        <div>{post.message}</div>
-                                  
+
+                                    <img src={post.imageUrl}
+                                        alt="This is a post image"
+                                        onError={({ currentTarget }) => {
+                                            currentTarget.onerror = null; // prevents looping
+                                            currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                        }} />
+                                    <div>{post.createdAt.toLocaleString()}</div>
+                                    <div>{post.message}</div>
+                                    {/* <button onClick={() => createInteraction(post.postedBy.id, post.id, "LIKE")}>Like</button>
+                                    <button onClick={() => createInteraction(post.postedBy.id, post.id, "DISLIKE")}>Dislike</button> */}
                                 </li>
                             </ul>
 

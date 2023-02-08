@@ -1,3 +1,4 @@
+
 div.user-wrapper, div.user-wrapper,div.user-wrapper {
     width: 100%;
     height: 100%;
@@ -18,6 +19,46 @@ li.user-item {
     position: relative;
     color: white;
     text-overflow: ellipsis;
+}
 
+// profile section
+section{
+    width:100%;
+    padding: 0;
+    margin:0;
+    position: relative;
+}
+
+img.cover-image{
+    margin: 0;
+    position:absolute;
+    max-width:2000px;
+    height:300px;
+    object-fit: cover;
+}
+
+img.profile-image{
+    width:200px;
+    height:200px;
+    border-radius: 100px;
+    margin-left: 20px;
+    margin-top: 180px;
+    position: absolute;
+    border: solid 5px white;
+    z-index: 2;
+    object-fit: cover;
+}
+
+section.user-profile .profile-info{
+    margin-top: 269px;;
+    margin-left:250px;
+    max-width:200px;
+    min-width: 50px;
+    object-fit: cover;
+    background-color: transparent;
+    text-align: center;
+    z-index: 999;
+    overflow-wrap:anywhere;
+    position: absolute;
 }
 
