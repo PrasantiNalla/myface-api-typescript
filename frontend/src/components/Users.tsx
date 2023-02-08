@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { UserModel } from "../../src/models/api/userModel"
+import { UserModel } from "../../../src/models/api/userModel"
 import { UserDetail } from "./UserDetail";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 

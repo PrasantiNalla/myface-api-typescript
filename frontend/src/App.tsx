@@ -1,15 +1,17 @@
 
 import './App.scss'
-// import './Posts.scss'
-import './Users.scss'
-import './UserDetail.scss'
-import { Posts } from './Posts'
-import { Users } from "./Users"
-import { UserDetail } from './UserDetail'
-import { CreateUser } from './CreateUser'
-import { CreatePost } from './CreatePost'
-import { NewUserMsg } from './NewUserMsg'
-import { NewPostMsg } from './NewPostMsg'
+import '../src/styles/Posts.scss'
+import '../src/styles/Users.scss'
+import '../src/styles/UserDetail.scss'
+import '../src/styles/CreatePost.scss'
+
+import { Posts } from './components/Posts'
+import { Users } from "./components/Users"
+import { UserDetail } from './components/UserDetail'
+import { CreateUser } from './components/CreateUser'
+import { CreatePost } from './components/CreatePost'
+import { NewUserMsg } from './components/NewUserMsg'
+import { NewPostMsg } from './components/NewPostMsg'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {

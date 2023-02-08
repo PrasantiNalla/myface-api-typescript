@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
-import { createUserApi } from "./api/api";
-import "./CreatePost.scss"
+import { createUserApi } from "../api/api";
+import "../styles/CreatePost.scss"
 import { useNavigate } from "react-router-dom";
 
 export function CreateUser() {

@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
-import { createPostApi } from "./api/api";
+import { createPostApi } from "../api/api";
 import { useNavigate } from "react-router-dom";
-import "./CreatePost.scss"
+import "../styles/CreatePost.scss"
 
 export function CreatePost() {
 

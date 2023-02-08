@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { PostModel } from "../../src/models/api/postModel"
+import { PostModel } from "../../../src/models/api/postModel"
 import { Link } from "react-router-dom";
-import { Page } from "../../src/models/api/page"
-import "./Posts.scss"
+
 
 
 export function Posts() {
