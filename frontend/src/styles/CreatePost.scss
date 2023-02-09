@@ -16,29 +16,37 @@ h2{
     text-align: center;
 }
 
-form{
+form.create-user{
     position: relative;
-    width: 70%;
+    width: 90%;
     text-align: left;
-    margin:0 auto;
+    margin:0;
 }
 
-form input{
+form.create-user input{
     display: inline-block;
     text-align: left;
-    width: 400px;
+    width: 220%;
 }
 
-form label{
+form.create-user label{
     display: inline-block;
     color: $foreground;
     text-align: left;
     width: 50%;
     position: absolute;
-    // left: 10%;
+    left:0;
     margin-right: 30px;
 }
 
+// form.create-post{
+//     border: solid 10px red;
+// }
+
 .error{
     color: $foreground;
+}
+
+button.btn{
+    margin-top: 50px;
 }

@@ -27,7 +27,7 @@ export function CreateUser() {
         <>
             <h2>Create a New User</h2>
             <p className="error">{error.length > 0? error:""}</p> 
-            <form onSubmit={(event) => handleSubmit(event)}>
+            <form className="form create-user" onSubmit={(event) => handleSubmit(event)}>
                 <label>Name: 
                     <input
                         type="text"
@@ -77,7 +77,7 @@ export function CreateUser() {
                         />
                 </label>
                 <br /><br />
-                <button type="submit" >Create User</button>
+                <button className="btn create-post" type="submit" >Create User</button>
             </form>
         </>
     )

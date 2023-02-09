@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { UserModel } from "../../../src/models/api/userModel"
 import { UserDetail } from "./UserDetail";
-import { BrowserRouter as  Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export function Users() {
     const [myData, setMyData] = useState([])

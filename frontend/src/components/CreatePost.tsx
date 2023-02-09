@@ -27,7 +27,7 @@ export function CreatePost() {
             <h2>Create a New Post</h2>
 
             <p className="error">{error.length > 0? error:""}</p>
-            <form onSubmit={(event) => handleSubmit(event)}>
+            <form className="form create-post" onSubmit={(event) => handleSubmit(event)}>
               
                 <label>Message:
                     <input
@@ -45,8 +45,8 @@ export function CreatePost() {
                         name="imageUrl"
                         onChange={e => setImageUrl(e.target.value)}
                     />
-                </label>
-                <button type="submit" onClick={()=>setAlert(!alert)}>Create Post</button>
+                </label><br/>
+                <button className="btn create-post" type="submit" onClick={()=>setAlert(!alert)}>Create Post</button>
             </form>
         </>
     )
