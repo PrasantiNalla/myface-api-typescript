@@ -3,11 +3,13 @@ import { Posts } from './components/Posts';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter} from "react-router-dom";
 
+// Fix the lib problem by these commands:
+// npm install --save-dev react-test-renderer
+// npm install --save-dev react-test-renderer --legacy-peer-deps
+// npm i --save-dev @types/react-test-renderer
 import * as renderer from 'react-test-renderer';
 
-
-//unit test cases
-
+//unit test case
 test('Check third image equal to what we are expecting', () => {
     render(<Router><Posts /></Router>);
     const image = screen.getAllByRole('img')[3];

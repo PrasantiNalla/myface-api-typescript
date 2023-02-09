@@ -39,6 +39,24 @@ form.create-user label{
     margin-right: 30px;
 }
 
+form.create-post{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+form.create-user input{
+    display: inline-block;
+    text-align: left;
+    width: 220%;
+}
+
+form.create-post label{
+    color: $foreground;
+    text-align: left;
+}
+
 // form.create-post{
 //     border: solid 10px red;
 // }
@@ -49,4 +67,8 @@ form.create-user label{
 
 button.btn{
     margin-top: 50px;
+}
+
+button.btn:hover{
+    background-color: $foreground;
 }

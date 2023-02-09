@@ -29,23 +29,23 @@ export function CreatePost() {
             <p className="error">{error.length > 0? error:""}</p>
             <form className="form create-post" onSubmit={(event) => handleSubmit(event)}>
               
-                <label>Message:
+                <label>Message:</label>
                     <input
                         type="text"
                         name="message"
                         id="message"
                         onChange={e => setMessage(e.target.value)}
                     />
-                </label>
-
+                
+        
                 {/* can we check type from backend? */}
-                <label>Image URL:
+                <label>Image URL:</label>
                     <input type="url"
                         id="imageUrl"
                         name="imageUrl"
                         onChange={e => setImageUrl(e.target.value)}
                     />
-                </label><br/>
+                <br/>
                 <button className="btn create-post" type="submit" onClick={()=>setAlert(!alert)}>Create Post</button>
             </form>
         </>
