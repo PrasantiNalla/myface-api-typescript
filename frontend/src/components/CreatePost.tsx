@@ -36,8 +36,10 @@ export function CreatePost() {
                         onChange={e => setMessage(e.target.value)}
                     />
                 </label>
+
+                {/* can we check type from backend? */}
                 <label>Image URL:
-                    <input type="text"
+                    <input type="url"
                         id="imageUrl"
                         name="imageUrl"
                         onChange={e => setImageUrl(e.target.value)}

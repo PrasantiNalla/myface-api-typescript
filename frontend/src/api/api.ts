@@ -1,3 +1,4 @@
+import { response } from "express";
 
 export function createPostApi(message: string, imageUrl: string):
     Promise<Response>{
@@ -23,7 +24,8 @@ export function createPostApi(message: string, imageUrl: string):
             {
                 return response;
             } else {
-                throw new Error(`Something went wrong...${response.errors[0].param} field is invalid`);
+                // throw new Error(`Something went wrong...${response.errors[0].param} field is invalid`);
+                throw new Error(`Something went wrong...${response.errors.map((error:any)=>error.param)} field is invalid`);
             }
         })
         return response;
@@ -56,13 +58,15 @@ export function createPostApi(message: string, imageUrl: string):
         },
         body:JSON.stringify(requestBody)
     })
+
+        .then(response=>response.json())
         .then(response => {
             console.log(response)
             if(response.status === 200)
             {
                 return response;
             } else {
-                throw new Error('Something went wrong.');
+                throw new Error(`Something went wrong...${response.errors.map((error:any)=>error.param)} field is invalid`);
             }
         })
         
