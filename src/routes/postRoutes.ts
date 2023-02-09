@@ -25,8 +25,9 @@ router.post('/create/',
     }
     const post = request.body;
 
+    // we need to convert the status to json, our code is designed to compile json object
     await createPost(post as CreatePostRequest);
-    return response.sendStatus(200);
+    return response.status(200).json({status:200});
 });
 
 router.post('/:postId/like/', async (request, response) => {

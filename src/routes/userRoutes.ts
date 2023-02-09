@@ -28,7 +28,7 @@ router.post('/create/',
     const user = request.body;
 
     await createUser(user as CreateUserRequest);
-    return response.sendStatus(200)
+    return response.status(200).json()
 });
 
 router.get('/:userId/', async (request, response) => {

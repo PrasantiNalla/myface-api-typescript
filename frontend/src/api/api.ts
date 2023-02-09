@@ -8,6 +8,7 @@ export function createPostApi(message: string, imageUrl: string):
         imageUrl: imageUrl
     }
 
+    //can we check url in the backend?
     const response = fetch(url, { 
         method:"POST",
         headers: {
@@ -15,13 +16,14 @@ export function createPostApi(message: string, imageUrl: string):
         },
         body:JSON.stringify(requestBody)
     })
+        .then(response => response.json())
         .then(response => {
             console.log(response)
             if(response.status === 200)
             {
                 return response;
             } else {
-                throw new Error('Something went wrong.');
+                throw new Error(`Something went wrong...${response.errors[0].param} field is invalid`);
             }
         })
         return response;
@@ -72,7 +74,7 @@ export function createPostApi(message: string, imageUrl: string):
     export function like(postId:number):
     Promise<Response>{
         
-    const url = "http://localhost:3001/:postId/like/";
+    const url = `http://localhost:3001/posts/${postId}/like/`;
 
     const response = fetch(url, { 
         method:"POST",
@@ -83,7 +85,8 @@ export function createPostApi(message: string, imageUrl: string):
             {
                 return response;
             } else {
-                throw new Error('Something went wrong.');
+               // throw new Error(`Something went wrong..${response.errors[0].param} field is invalid`);
+                throw new Error("something went wrong")
             }
         })
         return response;
@@ -92,7 +95,7 @@ export function createPostApi(message: string, imageUrl: string):
         // add function for dislike button
         export function dislike(postId:number):
         Promise<Response>{
-        const url = "http://localhost:3001/:postId/dislike/";
+        const url = `http://localhost:3001/posts/${postId}/dislike/`;
     
         const response = fetch(url, { 
             method:"POST",

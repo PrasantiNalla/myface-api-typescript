@@ -9,21 +9,23 @@ export function CreatePost() {
     const [imageUrl, setImageUrl] = useState<string>("");
     const [alert, setAlert] = useState(false);
 
-    const navigate = useNavigate();
+    const [error, setError] = useState<string>("");
 
+    const navigate = useNavigate();
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        navigate("/posts/success");
-        createPostApi(message, imageUrl);
+        
+        createPostApi(message, imageUrl)
+            .then(()=>navigate("/posts/success"))
+            .catch(e=>{setError(e.message)})
     }
 
     return (
         <>
             <h2>Create a new post</h2>
-            
-          
-            
+
+            <p className="error">{error.length > 0? error:""}</p>
             <form onSubmit={(event) => handleSubmit(event)}>
               
                 <label>Message:
@@ -31,15 +33,13 @@ export function CreatePost() {
                         type="text"
                         name="message"
                         id="message"
-                        required
                         onChange={e => setMessage(e.target.value)}
                     />
                 </label>
                 <label>Image URL:
-                    <input type="url"
+                    <input type="text"
                         id="imageUrl"
                         name="imageUrl"
-                        required
                         onChange={e => setImageUrl(e.target.value)}
                     />
                 </label>
