@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import { createUserApi } from "../api/api";
 import "../styles/CreatePost.scss"
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function CreateUser() {
     const [name, setName] = useState<string>("");
@@ -24,6 +25,7 @@ export function CreateUser() {
   
     return (
         <>
+            <Link to="/"> Home </Link>
             <h2>Create a new user</h2>
             <p className="error">{error.length > 0? error:""}</p> 
             <form onSubmit={(event) => handleSubmit(event)}>

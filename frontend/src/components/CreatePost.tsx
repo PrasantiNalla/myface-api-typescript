@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { createPostApi } from "../api/api";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/CreatePost.scss"
 
 export function CreatePost() {
@@ -23,6 +24,7 @@ export function CreatePost() {
 
     return (
         <>
+            <Link to="/"> Home </Link>
             <h2>Create a new post</h2>
 
             <p className="error">{error.length > 0? error:""}</p>

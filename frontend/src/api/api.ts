@@ -89,8 +89,7 @@ export function createPostApi(message: string, imageUrl: string):
             {
                 return response;
             } else {
-               // throw new Error(`Something went wrong..${response.errors[0].param} field is invalid`);
-                throw new Error("something went wrong")
+                throw new Error("something went wrong");
             }
         })
         return response;

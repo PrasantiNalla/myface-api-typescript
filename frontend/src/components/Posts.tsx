@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { PostModel } from "../../../src/models/api/postModel"
 import { Link } from "react-router-dom";
-import { like,dislike } from "../api/api";
+import { like, dislike } from "../api/api";
 import { createInteraction } from "../../../src/repos/interactionRepo"
+import React from "react";
 
 
 
@@ -18,8 +19,13 @@ export function Posts() {
             .then(data => setMyData(data.results))
     }, [currentPage]);
 
+    function refreshPage() {
+        window.location.reload();
+      }
+
     return (
-        <div>
+
+        <main className="posts">
             <Link to="/"> Home </Link>
             <h2>All Posts</h2>
             <div className="posts-wrapper">
@@ -28,7 +34,7 @@ export function Posts() {
                         <div >
                             <ul className="posts" >
                                 <li key={post.id} className="posts-item">
-
+                                   
                                     <img src={post.imageUrl}
                                         alt="This is a post image"
                                         onError={({ currentTarget }) => {
@@ -37,8 +43,8 @@ export function Posts() {
                                         }} />
                                     <div>{post.createdAt.toLocaleString()}</div>
                                     <div>{post.message}</div>
-                                    <button onClick={() => like(post.id)}>Like</button>
-                                    <button onClick={() => dislike(post.id)}>Dislike</button> 
+                                    <button onClick={() => { like(post.id); refreshPage }}>{post.likedBy.length} Like </button>&nbsp;&nbsp;
+                                    <button onClick={() => dislike(post.id)}>{post.dislikedBy.length} Dislike  </button>
                                 </li>
                             </ul>
 
@@ -58,7 +64,7 @@ export function Posts() {
                 onClick={() => (currentPage > 1 ? setCurrentPage(currentPage - 1) : currentPage)}>
                 Previous
             </Link>
-        </div>
+        </main>
     )
 
 }
