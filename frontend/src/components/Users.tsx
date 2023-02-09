@@ -8,7 +8,7 @@ export function Users() {
     const [currentPage, setCurrentPage] = useState(1)
 
     useEffect(() => {
-        fetch(`http://localhost:3001/users/?page=${currentPage}&pageSize=10`)
+        fetch(`http://localhost:3001/users/?page=${currentPage}&pageSize=9`)
             .then(response => response.json())
             .then(data => setMyData(data.results))
     }, [currentPage]);

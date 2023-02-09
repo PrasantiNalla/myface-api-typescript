@@ -1,3 +1,5 @@
+// Bugs: when error message displayed, the input box will expand
+
 import { FormEvent, useState } from "react";
 import { createUserApi } from "../api/api";
 import "../styles/CreatePost.scss"
