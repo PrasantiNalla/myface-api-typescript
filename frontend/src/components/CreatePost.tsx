@@ -24,8 +24,7 @@ export function CreatePost() {
 
     return (
         <>
-            <Link to="/"> Home </Link>
-            <h2>Create a new post</h2>
+            <h2>Create a New Post</h2>
 
             <p className="error">{error.length > 0? error:""}</p>
             <form onSubmit={(event) => handleSubmit(event)}>

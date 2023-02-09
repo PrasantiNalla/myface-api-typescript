@@ -25,11 +25,10 @@ export function CreateUser() {
   
     return (
         <>
-            <Link to="/"> Home </Link>
-            <h2>Create a new user</h2>
+            <h2>Create a New User</h2>
             <p className="error">{error.length > 0? error:""}</p> 
             <form onSubmit={(event) => handleSubmit(event)}>
-                <label>Name
+                <label>Name: 
                     <input
                         type="text"
                         name="name"
@@ -39,7 +38,7 @@ export function CreateUser() {
                          />
                 </label>
                 <br /><br />
-                <label>Username
+                <label>Username: 
                     <input
                         type="text"
                         name="username"
@@ -50,7 +49,7 @@ export function CreateUser() {
 
                 </label>
                 <br /><br />
-                <label> Email
+                <label> Email: 
                     <input
                         type="email"
                         name="email"
@@ -60,7 +59,7 @@ export function CreateUser() {
                          />
                 </label>
                 <br /><br />
-                <label> Profile Image
+                <label> Profile Image:
                     <input type="url"
                         name="profile-image"
                         id="profile-image"
@@ -69,7 +68,7 @@ export function CreateUser() {
                          />
                 </label>
                 <br /><br />
-                <label> Cover Image
+                <label> Cover Image:
                     <input type="url"
                         name="cover-image"
                         id="cover-image"

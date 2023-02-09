@@ -26,7 +26,6 @@ export function Posts() {
     return (
 
         <main className="posts">
-            <Link to="/"> Home </Link>
             <h2>All Posts</h2>
             <div className="posts-wrapper">
                 {myData.map((post: PostModel) => {
@@ -43,8 +42,8 @@ export function Posts() {
                                         }} />
                                     <div>{post.createdAt.toLocaleString()}</div>
                                     <div>{post.message}</div>
-                                    <button onClick={() => { like(post.id); refreshPage }}>{post.likedBy.length} Like </button>&nbsp;&nbsp;
-                                    <button onClick={() => dislike(post.id)}>{post.dislikedBy.length} Dislike  </button>
+                                    <button className="btn like" onClick={() => { like(post.id); refreshPage }}>{post.likedBy.length} Like </button>&nbsp;&nbsp;
+                                    <button className="btn dislike" onClick={() => dislike(post.id)}>{post.dislikedBy.length} Dislike  </button>
                                 </li>
                             </ul>
 

@@ -21,6 +21,8 @@ nav.navbar {
   left: 0;
   width: 100%;
   background-color: $darker-background;
+  z-index:999;
+ 
 }
 
 div.nav-items {

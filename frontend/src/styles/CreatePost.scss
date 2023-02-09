@@ -1,8 +1,44 @@
+$background-color: #252A38;
+$darker-background: #151820;
+$foreground: #DCDCDC;
+
 .alert-disappear{
     display:none;
-    
 }
 
 .alert-appear{
     display:block;
+}
+
+h2{
+    position: relative;
+    padding: 50px;
+    text-align: center;
+}
+
+form{
+    position: relative;
+    width: 70%;
+    text-align: left;
+    margin:0 auto;
+}
+
+form input{
+    display: inline-block;
+    text-align: left;
+    width: 400px;
+}
+
+form label{
+    display: inline-block;
+    color: $foreground;
+    text-align: left;
+    width: 50%;
+    position: absolute;
+    // left: 10%;
+    margin-right: 30px;
+}
+
+.error{
+    color: $foreground;
 }

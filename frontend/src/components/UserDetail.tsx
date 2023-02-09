@@ -26,7 +26,6 @@ export function UserDetail() {
     // don't know why li is complaining
     return (
         <>
-            <Link to="/"> Home </Link>
             <section className="user-proflie">
                 <img className="cover-image"
                     src={myProfile.coverImageUrl}
@@ -47,7 +46,7 @@ export function UserDetail() {
                 />
 
                 <div className="profile-info">
-                    <div>{myProfile.name}</div>
+                    <div id="name">{myProfile.name}</div>
                     <div>{myProfile.username}</div>
                     <div>{myProfile.email}</div>
                 </div>
@@ -70,9 +69,9 @@ export function UserDetail() {
                                                 currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
                                             }} />
                                         <br />
-                                        {post.message}
-                                        <br />
                                         {post.createdAt}
+                                        <br />
+                                        {post.message}
 
                                     </li>
                                 </ul>

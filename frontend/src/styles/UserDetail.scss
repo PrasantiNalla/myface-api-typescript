@@ -1,3 +1,7 @@
+$background-color: #252A38;
+$darker-background: #151820;
+$foreground: #DCDCDC;
+
 section.user.h3 {
     text-align: left;
 }
@@ -8,7 +12,7 @@ div.user-wrapper {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 50px;
+    grid-gap: 20px;
     padding-top: 100px;
 }
 
@@ -24,6 +28,7 @@ li.user-item {
     position: relative;
     color: white;
     text-overflow: ellipsis;
+    
 }
 
 // profile section
@@ -57,11 +62,15 @@ img.profile-image {
 
 div.profile-info {
     position: absolute;
-    left: 225px;
-    bottom: -15%;
+    left: 250px;
+    bottom: -17%;
     object-fit: cover;
+    color: $foreground;
 
+}
 
+div.profile-info #name{
+    background-color: rgb(21, 24, 32,0.5);
 }
 
 // section.user-profile .profile-info {
