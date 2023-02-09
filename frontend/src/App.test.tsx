@@ -3,7 +3,7 @@ import { Posts } from './components/Posts';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter} from "react-router-dom";
 
-//import * as renderer from 'react-test-renderer';
+import * as renderer from 'react-test-renderer';
 
 
 //unit test cases
@@ -15,9 +15,9 @@ test('Check third image equal to what we are expecting', () => {
 });
 
 //snapshot test
-// it('renders correctly2', async () => {
-//     const tree = renderer.create(<App />).toJSON();
-//     expect(tree).toMatchSnapshot();
-// });
+it('renders correctly2', async () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
 //component test
