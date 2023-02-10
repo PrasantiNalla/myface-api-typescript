@@ -70,7 +70,7 @@ export function UserDetail() {
                                                 currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
                                             }} />
                                         <br />
-                                        {post.createdAt}
+                                        {post.createdAt.toLocaleString().slice(0,10)}
                                         <br />
                                         {post.message}
                                         </>
@@ -100,7 +100,7 @@ export function UserDetail() {
                                                 currentTarget.onerror = null; // prevents looping
                                                 currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
                                             }} /> <br />
-                                        {like.createdAt}<br />
+                                        {like.createdAt.toLocaleString().slice(0,10)}<br />
                                         {like.message}
                                         </>
                                     </li>
@@ -129,9 +129,9 @@ export function UserDetail() {
                                                 currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
                                             }} />
                                         <br />
-                                        {dislike.message}
+                                        {dislike.createdAt.toLocaleString().slice(0,10)}
                                         <br />
-                                        {dislike.createdAt}
+                                        {dislike.message}
                                         </>
                                     </li>
                                 </ul>

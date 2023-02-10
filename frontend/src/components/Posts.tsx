@@ -12,8 +12,8 @@ export function Posts() {
     const [currentPage, setCurrentPage] = useState(1)
     const [status, setStatus] = useState(false)
     const [error, setError] = useState("")
-    const [PostId, setPostId] = useState(0)
-    const [alert, setAlert] = useState(false);
+    const [postId, setPostId] = useState(0)
+    // const [alert, setAlert] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -25,10 +25,10 @@ export function Posts() {
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        like(PostId)
+        like(postId)
             .then(() => navigate("/posts"))
             .catch(e => { setError(e.message) })
-        dislike(PostId)
+        dislike(postId)
             .then(() => navigate("/posts"))
             .catch(e => { setError(e.message) })
     }
@@ -56,11 +56,11 @@ export function Posts() {
                                             currentTarget.onerror = null; // prevents looping
                                             currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
                                         }} />
-                                    <div>{post.createdAt.toLocaleString()}</div>
+                                    <div>{post.createdAt.toLocaleString().slice(0,10)}</div>
                                     <div>{post.message}</div>
                                     <form onSubmit={(event) => handleSubmit(event)}>
-                                        <button className="btn like" onClick={() => { like(post.id); setStatus(!status); setPostId(post.id); setAlert(!alert)}}>{post.likedBy.length} Like </button>&nbsp;&nbsp;
-                                        <button className="btn dislike" onClick={() => { dislike(post.id); setStatus(!status); setPostId(post.id); setAlert(!alert) }}>{post.dislikedBy.length} Dislike  </button>
+                                        <button className="btn like" onClick={() => { like(post.id); setStatus(!status); setPostId(post.id); alert(errorMsg())}}>{post.likedBy.length} Like </button>&nbsp;&nbsp;
+                                        <button className="btn dislike" onClick={() => { dislike(post.id); setStatus(!status); setPostId(post.id); alert(errorMsg()) }}>{post.dislikedBy.length} Dislike  </button>
                                     </form>
                                 </li>
                             </ul>

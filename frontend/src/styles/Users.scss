@@ -30,11 +30,15 @@ li.users-item {
     text-overflow: ellipsis;
 }
 
+li.users-item:hover{
+    background-color: black;
+}
+
 // li.users-item div a:hover{
 //     background-color: red;
 // }
 
-div.btn{
+div.btnNext{
     margin-top: 50px;
 }
 

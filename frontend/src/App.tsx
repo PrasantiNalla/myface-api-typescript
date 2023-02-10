@@ -12,6 +12,7 @@ import { CreateUser } from './components/CreateUser'
 import { CreatePost } from './components/CreatePost'
 import { NewUserMsg } from './components/NewUserMsg'
 import { NewPostMsg } from './components/NewPostMsg'
+import { Link } from 'react-router-dom'
 import { BrowserRouter as Router, Routes, Route, BrowserRouter} from "react-router-dom";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
             <Route path="/" element={
               <>
                 <h1>Welcome to MyFace!</h1>
-                <h3>Get started by creating a new user!</h3>
+                <h3>Get started by creating a <Link to="/users/create">new user!</Link></h3>
               </>
             } />
             
