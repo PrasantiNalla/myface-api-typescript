@@ -23,6 +23,10 @@ export function UserDetail() {
             })
     }, [params.userId]);
 
+    const postsList= myPosts.slice(0,6);
+    const likesList = myLikes.slice(0,6);
+    const dislikesList = myDislikes.slice(0,6);
+
     // don't know why li is complaining
     return (
         <>
@@ -56,7 +60,7 @@ export function UserDetail() {
             <section className="user">
                 <h3>Posts</h3>
                 <div className="user-wrapper">
-                    {myPosts.map((post: UserPostModel) => {
+                    {postsList.map((post: UserPostModel) => {
                         return (
                             <div>
                                 <ul>
@@ -88,7 +92,7 @@ export function UserDetail() {
             <section className="user">
                 <h3>Likes</h3>
                 <div className="user-wrapper">
-                    {myLikes.map((like: UserPostModel) => {
+                    {likesList.map((like: UserPostModel) => {
                         return (
                             <div>
                                 <ul >
@@ -116,7 +120,7 @@ export function UserDetail() {
             <section className="user">
                 <h3>Dislikes</h3>
                 <div className="user-wrapper">
-                    {myDislikes.map((dislike: UserPostModel) => {
+                    {dislikesList.map((dislike: UserPostModel) => {
                         return (
                             <div >
                                 <ul>
