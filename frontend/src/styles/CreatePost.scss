@@ -2,57 +2,60 @@ $background-color: #252A38;
 $darker-background: #151820;
 $foreground: #DCDCDC;
 
-.alert-disappear{
-    display:none;
+.alert-disappear {
+    display: none;
 }
 
-.alert-appear{
-    display:block;
+.alert-appear {
+    display: block;
 }
 
-h2{
+h2 {
     position: relative;
     padding: 50px;
     text-align: center;
 }
 
-form.create-user{
+form.create-user {
     position: relative;
     width: 90%;
     text-align: left;
-    margin:0;
+    margin: 0;
+
+    // border: solid 5px red;
 }
 
-form.create-user input{
+form.create-user input {
     display: inline-block;
     text-align: left;
     width: 220%;
+
 }
 
-form.create-user label{
+form.create-user label {
     display: inline-block;
     color: $foreground;
     text-align: left;
     width: 50%;
     position: absolute;
-    left:0;
+    left: 0;
     margin-right: 30px;
 }
 
-form.create-post{
+form.create-post {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap:20px;
+    gap: 20px;
 }
 
-form.create-user input{
+form.create-user input {
     display: inline-block;
     text-align: left;
     width: 220%;
 }
 
-form.create-post label{
+form.create-post label {
     color: $foreground;
     text-align: left;
 }
@@ -61,14 +64,16 @@ form.create-post label{
 //     border: solid 10px red;
 // }
 
-.error{
+.error {
     color: $foreground;
+    overflow-wrap: break-word;
+    // border: solid 5px red;
 }
 
-button.btn{
+button.btn {
     margin-top: 50px;
 }
 
-button.btn:hover{
+button.btn:hover {
     background-color: $foreground;
 }

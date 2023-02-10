@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly2 1`] = `
+[
+  <nav
+    className="navbar"
+  >
+    <div
+      className="nav-items"
+    >
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+           Home 
+        </a>
+      </li>
+      <li>
+        <a
+          href="/posts"
+          onClick={[Function]}
+        >
+            Posts 
+        </a>
+      </li>
+      <li>
+        <a
+          href="/users"
+          onClick={[Function]}
+        >
+            Users 
+        </a>
+      </li>
+      <li>
+        <a
+          href="/users/create"
+          onClick={[Function]}
+        >
+            + New User 
+        </a>
+      </li>
+      <li>
+        <a
+          href="/posts/create"
+          onClick={[Function]}
+        >
+            + New Post 
+        </a>
+      </li>
+    </div>
+  </nav>,
+  <h1>
+    Welcome to MyFace!
+  </h1>,
+  <h3>
+    Get started by creating a new user!
+  </h3>,
+]
+`;

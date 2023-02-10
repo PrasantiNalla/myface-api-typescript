@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter} from "react-rout
 import * as renderer from 'react-test-renderer';
 
 //unit test case
+//we need to mock the API call in the unit test
 test('Check third image equal to what we are expecting', () => {
     render(<Router><Posts /></Router>);
     const image = screen.getAllByRole('img')[3];
@@ -23,3 +24,5 @@ it('renders correctly2', async () => {
 });
 
 //component test
+//check that component rendering; pages rendering; elements are there; 
+//click on something, whether it shows a menu;

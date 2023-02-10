@@ -59,9 +59,10 @@ export function UserDetail() {
                     {myPosts.map((post: UserPostModel) => {
                         return (
                             <div>
-                                <ul >
+                                <ul>
+                                    
                                     <li className="user-item">
-
+                                        <>
                                         <img src={post.imageUrl}
                                             alt="This is a post image"
                                             onError={({ currentTarget }) => {
@@ -72,8 +73,9 @@ export function UserDetail() {
                                         {post.createdAt}
                                         <br />
                                         {post.message}
-
+                                        </>
                                     </li>
+                                    
                                 </ul>
                             </div>
                         )
@@ -91,6 +93,7 @@ export function UserDetail() {
                             <div>
                                 <ul >
                                     <li className="user-item">
+                                        <>
                                         <img src={like.imageUrl}
                                             alt="This is a post image"
                                             onError={({ currentTarget }) => {
@@ -99,7 +102,9 @@ export function UserDetail() {
                                             }} /> <br />
                                         {like.createdAt}<br />
                                         {like.message}
+                                        </>
                                     </li>
+                                    
                                 </ul>
                             </div>
                         )
@@ -116,6 +121,7 @@ export function UserDetail() {
                             <div >
                                 <ul>
                                     <li className="user-item">
+                                        <>
                                         <img src={dislike.imageUrl}
                                             alt="This is a post image"
                                             onError={({ currentTarget }) => {
@@ -126,6 +132,7 @@ export function UserDetail() {
                                         {dislike.message}
                                         <br />
                                         {dislike.createdAt}
+                                        </>
                                     </li>
                                 </ul>
                             </div>

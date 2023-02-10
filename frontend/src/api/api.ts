@@ -89,7 +89,7 @@ export function createPostApi(message: string, imageUrl: string):
             {
                 return response;
             } else {
-                throw new Error("something went wrong");
+                throw new Error("Sorry, it seems that you have liked/disliked this post!");
             }
         })
         return response;
@@ -109,7 +109,7 @@ export function createPostApi(message: string, imageUrl: string):
                 {
                     return response;
                 } else {
-                    throw new Error('Something went wrong.');
+                    throw new Error("Sorry, it seems that you have liked/disliked this post!");
                 }
             })
             return response;

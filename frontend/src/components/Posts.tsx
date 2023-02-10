@@ -4,24 +4,40 @@ import { Link } from "react-router-dom";
 import { like, dislike } from "../api/api";
 import { createInteraction } from "../../../src/repos/interactionRepo"
 import React from "react";
-
-
-
-
+import { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Posts() {
     const [myData, setMyData] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
+    const [status, setStatus] = useState(false)
+    const [error, setError] = useState("")
+    const [PostId, setPostId] = useState(0)
+    const [alert, setAlert] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:3001/posts/?page=${currentPage}&pageSize=9`)
             .then(response => response.json())
             .then(data => setMyData(data.results))
-    }, [currentPage]);
+    }, [currentPage, status]);
 
-    function refreshPage() {
-        window.location.reload();
-      }
+    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
+        like(PostId)
+            .then(() => navigate("/posts"))
+            .catch(e => { setError(e.message) })
+        dislike(PostId)
+            .then(() => navigate("/posts"))
+            .catch(e => { setError(e.message) })
+    }
+
+    function errorMsg() {
+        if (error.length > 0) {
+            return error
+        }
+    }
 
     return (
 
@@ -33,7 +49,7 @@ export function Posts() {
                         <div >
                             <ul className="posts" >
                                 <li key={post.id} className="posts-item">
-                                   
+
                                     <img src={post.imageUrl}
                                         alt="This is a post image"
                                         onError={({ currentTarget }) => {
@@ -42,8 +58,10 @@ export function Posts() {
                                         }} />
                                     <div>{post.createdAt.toLocaleString()}</div>
                                     <div>{post.message}</div>
-                                    <button className="btn like" onClick={() => { like(post.id); refreshPage }}>{post.likedBy.length} Like </button>&nbsp;&nbsp;
-                                    <button className="btn dislike" onClick={() => dislike(post.id)}>{post.dislikedBy.length} Dislike  </button>
+                                    <form onSubmit={(event) => handleSubmit(event)}>
+                                        <button className="btn like" onClick={() => { like(post.id); setStatus(!status); setPostId(post.id); setAlert(!alert)}}>{post.likedBy.length} Like </button>&nbsp;&nbsp;
+                                        <button className="btn dislike" onClick={() => { dislike(post.id); setStatus(!status); setPostId(post.id); setAlert(!alert) }}>{post.dislikedBy.length} Dislike  </button>
+                                    </form>
                                 </li>
                             </ul>
 
