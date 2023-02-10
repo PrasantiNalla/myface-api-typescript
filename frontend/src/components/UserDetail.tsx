@@ -22,12 +22,12 @@ export function UserDetail() {
                 setMyDislikes(data.dislikes)
             })
     }, [params.userId]);
+    // to restric the posts,likes & dislikes to display first 6 details
+    const postsList = myPosts.slice(0, 6);
+    const likesList = myLikes.slice(0, 6);
+    const dislikesList = myDislikes.slice(0, 6);
 
-    const postsList= myPosts.slice(0,6);
-    const likesList = myLikes.slice(0,6);
-    const dislikesList = myDislikes.slice(0,6);
 
-    // don't know why li is complaining
     return (
         <>
             <section className="user-proflie">
@@ -64,22 +64,22 @@ export function UserDetail() {
                         return (
                             <div>
                                 <ul>
-                                    
+
                                     <li className="user-item">
                                         <>
-                                        <img src={post.imageUrl}
-                                            alt="This is a post image"
-                                            onError={({ currentTarget }) => {
-                                                currentTarget.onerror = null; // prevents looping
-                                                currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
-                                            }} />
-                                        <br />
-                                        {post.createdAt.toLocaleString().slice(0,10)}
-                                        <br />
-                                        {post.message}
+                                            <img src={post.imageUrl}
+                                                alt="This is a post image"
+                                                onError={({ currentTarget }) => {
+                                                    currentTarget.onerror = null; // prevents looping
+                                                    currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                                }} />
+                                            <br />
+                                            {post.createdAt.toLocaleString().slice(0, 10)}
+                                            <br />
+                                            {post.message}
                                         </>
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         )
@@ -98,17 +98,17 @@ export function UserDetail() {
                                 <ul >
                                     <li className="user-item">
                                         <>
-                                        <img src={like.imageUrl}
-                                            alt="This is a post image"
-                                            onError={({ currentTarget }) => {
-                                                currentTarget.onerror = null; // prevents looping
-                                                currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
-                                            }} /> <br />
-                                        {like.createdAt.toLocaleString().slice(0,10)}<br />
-                                        {like.message}
+                                            <img src={like.imageUrl}
+                                                alt="This is a post image"
+                                                onError={({ currentTarget }) => {
+                                                    currentTarget.onerror = null; // prevents looping
+                                                    currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                                }} /> <br />
+                                            {like.createdAt.toLocaleString().slice(0, 10)}<br />
+                                            {like.message}
                                         </>
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         )
@@ -126,16 +126,16 @@ export function UserDetail() {
                                 <ul>
                                     <li className="user-item">
                                         <>
-                                        <img src={dislike.imageUrl}
-                                            alt="This is a post image"
-                                            onError={({ currentTarget }) => {
-                                                currentTarget.onerror = null; // prevents looping
-                                                currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
-                                            }} />
-                                        <br />
-                                        {dislike.createdAt.toLocaleString().slice(0,10)}
-                                        <br />
-                                        {dislike.message}
+                                            <img src={dislike.imageUrl}
+                                                alt="This is a post image"
+                                                onError={({ currentTarget }) => {
+                                                    currentTarget.onerror = null; // prevents looping
+                                                    currentTarget.src = "https://cdn-multicoat-com.sfo2.digitaloceanspaces.com/wp-content/uploads/2018/08/02232112/placeholder.jpg";
+                                                }} />
+                                            <br />
+                                            {dislike.createdAt.toLocaleString().slice(0, 10)}
+                                            <br />
+                                            {dislike.message}
                                         </>
                                     </li>
                                 </ul>
